@@ -1,6 +1,5 @@
 <template>
     <div>
-        Login
         <a href="/main"></a>
     </div>
 </template>
