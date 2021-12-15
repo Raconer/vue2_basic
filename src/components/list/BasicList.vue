@@ -25,7 +25,6 @@ import apiCore from "@/core/ApiCore";
 export default {
     mounted(){
         apiCore.get(function(data){
-            alert(data);
             console.log(data);
         });
     }

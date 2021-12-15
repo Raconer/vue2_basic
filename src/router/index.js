@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "@/views/Login";
 import Main from '@/views/Main';
+import Parent from '@/views/Parent';
 
 Vue.use(VueRouter);
 
@@ -9,7 +10,7 @@ const routes = [
     {
         path : "/",
         redirect: {
-            name: "login"
+            name: "main"
         }
     },
     {
@@ -21,6 +22,11 @@ const routes = [
         path : "/main",
         name : "main",
         component : Main
+    },
+    {
+        path : "/parent",
+        name : "parent",
+        component : Parent
     }
 ];
 
