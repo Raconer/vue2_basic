@@ -1,7 +1,9 @@
 <template>
   <div>
-    Parent Vue
-    Data : {{parent}}
+    Parent Vue<br>
+    Data : {{parent}}<br>
+    Child 1 Data : {{child1Data.title}}<br>
+    <input type="button" value="child1 Send Value" @click="childSendEvent()">
     <hr>
     <child1 :parent="parent" v-on:sendParent="parentEvent"></child1>
     <hr>
@@ -17,8 +19,13 @@ export default {
   data(){
     let parent = {
       title : "Parent Title"
-    }
+    };
+    let child1Data = {
+      title : ""
+    };
+
     return {
+      child1Data,
       parent
     }
   },
@@ -28,8 +35,12 @@ export default {
   },
   methods:{
     parentEvent(childData){
-      console.log("Start Parent Event")
-      console.log(childData.title);
+      this.child1Data = childData;
+    },
+    childSendEvent(){
+      this.parent = {
+      title : "Change Parent Title"
+    };
     }
   }
 }

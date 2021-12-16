@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import {EventBus} from '@/utils/EventBus';
+import EventBus from '@/utils/EventBus';
 export default {
   props: ["parent"],
   data(){
@@ -24,13 +24,13 @@ export default {
  
   methods:{
     childEvent(){
-      console.log("Start Child Event");
       this.$emit("sendParent", this.child1Data);
     },
     silblingEvent(){
-      console.log("Start Silbling Event");
-      
-      EventBus.$emit("sendSilbling");
+      EventBus.$emit("sendSilbling", this.child1Data);
+    },
+    testEvent(){
+      alert("Child Start")
     }
   }
 }
